@@ -1,0 +1,18 @@
+primary colors = rgb(250, 245, 237).  #FAF5ED
+second color = rgb(252, 228, 222).  #FCE4DE
+third color = rgb(250, 227, 212)
+
+secondary color = rgb(183, 117, 103)
+
+
+
+
+homepage
+articles (collection of article cards)
+cards
+article page 
+bottombar for article page
+menu (all navigation, bookmarks, etc)
+share option
+search bar expension
+infinite scroll

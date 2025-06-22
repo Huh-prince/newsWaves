@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "react-icons": "^5.5.0"
+  }
+}

@@ -1,0 +1,59 @@
+.app {
+  top: 4rem;
+  width: 100%;
+  margin: 0 auto;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  background: #faf5ed;
+  background: linear-gradient(
+    90deg,
+    rgba(250, 245, 237, 1) 0%,
+    rgba(252, 228, 222, 1) 50%,
+    rgba(250, 227, 212, 1) 100%
+  );
+  padding: 2rem;
+}
+.pageHeading {
+  font-size: 3rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 200;
+  color: #000;
+  margin: 2rem 0;
+}
+
+
+
+
+
+
+
+
+img {
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+}
+
+img:hover {
+  filter: grayscale(0);
+  transform: scale(1.05);
+}
+
+
+
+
+
+.articles{
+  column-width: 380px;
+  overflow: hidden;
+  column-gap: 1em;
+  justify-content: center;
+}
+
+.articles a{
+  text-decoration: none;
+  color: #000;
+}
+
+.articles a::after{
+  color: #000;
+}
