@@ -1,0 +1,82 @@
+.article {
+  width: 100%;
+
+  margin: 0 auto;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  background: #faf5ed;
+  background: linear-gradient(
+    90deg,
+    rgba(250, 245, 237, 1) 0%,
+    rgba(252, 228, 222, 1) 50%,
+    rgba(250, 227, 212, 1) 100%
+  );
+  padding: 3rem;
+  position: relative;
+  text-align: justify;
+}
+
+.article img {
+  width: 40%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+    filter: grayscale(100%);
+  transition: all 0.3s ease;
+  float: left;
+  shape-margin: 20px;
+  height: auto;
+  margin: 0 20px 20px 0;
+  /* clip-path: ellipse(50% 50% at 50% 50%); */
+}
+
+.article img:hover {
+  filter: grayscale(0);
+  transform: scale(1.01);
+}
+
+
+
+.bottomBar{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #363637;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.4rem;
+    z-index: 1;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    color: white;
+}
+
+.bottomBar .buttons{
+    display: flex;
+    gap: 0.7rem;
+}
+
+
+
+
+.buttons button{
+    padding: 7px;
+    border-radius: 50%;
+    display: flex;
+    background-color: grey;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.bottomBar button:hover{
+    transform: scale(1.1);
+}
+

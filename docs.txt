@@ -8,7 +8,7 @@ secondary color = rgb(183, 117, 103)
 
 
 homepage
-articles (collection of article cards)
+
 cards
 article page 
 bottombar for article page
