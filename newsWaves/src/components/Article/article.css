@@ -12,15 +12,16 @@
     rgba(250, 227, 212, 1) 100%
   );
   padding: 3rem;
+  padding-bottom: 8rem;
   position: relative;
   text-align: justify;
 }
 
 .article img {
-  width: 40%;
+  width: 50%;
   border-radius: 8px;
   margin-bottom: 20px;
-    filter: grayscale(100%);
+  filter: grayscale(100%);
   transition: all 0.3s ease;
   float: left;
   shape-margin: 20px;
@@ -33,6 +34,7 @@
   filter: grayscale(0);
   transform: scale(1.01);
 }
+
 
 
 
@@ -58,7 +60,12 @@
     gap: 0.7rem;
 }
 
-
+.content{
+  padding: 0;
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
 
 
 .buttons button{

@@ -9,10 +9,11 @@ secondary color = rgb(183, 117, 103)
 
 homepage
 
-cards
-article page 
-bottombar for article page
-menu (all navigation, bookmarks, etc)
-share option
-search bar expension
-infinite scroll
+cards                                                               done 
+article page                                                        done
+bottombar for article page                                          done
+bookmarks feature                                                   done
+menu (all navigation, bookmarks, etc) done                          not done  
+share option                                                        done
+search bar expension                                                not done
+infinite scroll                                                     done

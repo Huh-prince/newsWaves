@@ -1,4 +1,3 @@
-import React from "react";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { IoShareSocialOutline } from "react-icons/io5";
@@ -19,7 +18,7 @@ function Article() {
       setArticle(location.state.articles[parseInt(index)]);
     } else {
       // fallback: fetch and pick one by index
-      fetch("https://your-api.com/news")
+      fetch("http://localhost:2020/api/parse")
         .then((res) => res.json())
         .then((data) => {
           setArticle(data.articles[parseInt(index)]);
@@ -27,31 +26,51 @@ function Article() {
     }
   }, [index, location.state]);
 
-  
-
-  const articleUrl = window.location.href; // or use article ID/slug
+  // const articleUrl = window.location.href; // or use article ID/slug
+  // const articleUrl = article?.url;
   const [bookmarked, setBookmarked] = useState(false);
 
   useEffect(() => {
-    const saved = JSON.parse(localStorage.getItem("bookmarks") || "[]");
-    if (saved.includes(articleUrl)) {
-      setBookmarked(true);
-    }
-  }, [articleUrl]);
+  const saved = JSON.parse(localStorage.getItem("bookmarks") || "[]");
+  const isBookmarked = saved.some(item => item.url === article?.url);
+  setBookmarked(isBookmarked);
+}, [article]);
 
-  function toggleBookmark() {
-    const saved = JSON.parse(localStorage.getItem("bookmarks") || "[]");
-    let updated;
 
-    if (bookmarked) {
-      updated = saved.filter((url) => url !== articleUrl);
-    } else {
-      updated = [...saved, articleUrl];
-    }
 
-    localStorage.setItem("bookmarks", JSON.stringify(updated));
-    setBookmarked(!bookmarked);
+  const [parsedContent, setParsedContent] = useState("");
+  useEffect(() => {
+    if (!article?.url) return;
+
+    fetch(
+      `http://localhost:2020/api/parse?url=${encodeURIComponent(article.url)}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setParsedContent(data.content);
+      })
+      .catch((err) => console.error("Failed to fetch parsed content:", err));
+  }, [article?.url]);
+  // console.log(parsedContent);
+
+ const articleKey = "bookmarks";
+
+function toggleBookmark() {
+  const saved = JSON.parse(localStorage.getItem(articleKey) || "[]");
+
+  const exists = saved.find((a) => a.url === article.url);
+
+  let updated;
+  if (exists) {
+    updated = saved.filter((a) => a.url !== article.url);
+  } else {
+    updated = [...saved, article]; // 🟢 Save full article object
   }
+
+  localStorage.setItem(articleKey, JSON.stringify(updated));
+  setBookmarked(!exists);
+}
+
 
   function share() {
     const linkToShare = window.location.href;
@@ -72,19 +91,15 @@ function Article() {
     <>
       <Navbar />
       <div className="article">
-        <img
-          src={article.urlToImage}
-          alt=""
-        />
+        <img src={article.urlToImage} alt="" />
 
         <div className="articleDescription">
-          <h1>
-            {article.title}
-          </h1>{" "}
-          <br />
-          <p>
-            {article.content}
-          </p>
+          <h1>{article.title}</h1> <br />
+          <p className="content"
+            dangerouslySetInnerHTML={{
+              __html: parsedContent || article.content,
+            }}
+          ></p>
         </div>
         <br />
         <br />
@@ -95,7 +110,6 @@ function Article() {
           <p>Author : &nbsp; &nbsp; &nbsp; {article.author}</p>
           <p>Date : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {article.publishedAt}</p>
           <p>Source : &nbsp; &nbsp; &nbsp; {article.source.name}</p>
-          <p>Category : World</p>
         </div>
         <br />
         <br />

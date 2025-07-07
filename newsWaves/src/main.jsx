@@ -6,6 +6,8 @@ import "./index.css";
 // import Navbar from "./components/Navbar/Navbar.jsx";
 import Articles from "./components/articles/Articles.jsx"; 
 import Article from "./components/Article/Article.jsx";
+import SearchResults from "./components/Searh/SearchReasult.jsx";
+import Bookmarks from "./components/Bookmark/Bookmarks.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -16,6 +18,8 @@ createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<Articles />} />
         <Route path="/article/:index" element={<Article />} />
+        <Route path="/search" element={<SearchResults />} />
+        <Route path="/bookmarks" element={<Bookmarks/>} />
       </Routes>
     </Router>
   </StrictMode>
