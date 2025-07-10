@@ -17,7 +17,8 @@ const Articles = () => {
   const fetchArticles = useCallback(async () => {
     try {
       const res = await fetch(
-        `https://newsapi.org/v2/top-headlines?country=us&pageSize=10&page=${page}&apiKey=${apiKey}`
+        `https://newsapi.org/v2/top-headlines?country=us&pageSize=10&page=${page}&apiKey=${apiKey}`,
+        {method: "GET",}
       );
       const data = await res.json();
       if (data.articles.length === 0) {
