@@ -12,7 +12,6 @@ const Articles = () => {
   const navigate = useNavigate();
 
   const apiKey = import.meta.env.VITE_NEWS_API_KEY;
-  console.log(import.meta.env);
   
 
   const fetchArticles = useCallback(async () => {
