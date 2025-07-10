@@ -4,7 +4,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 
 // import Navbar from "./components/Navbar/Navbar.jsx";
-import Articles from "./components/articles/Articles.jsx"; 
+import Articles from "./components/Articles/Articles.jsx"; 
 import Article from "./components/Article/Article.jsx";
 import SearchResults from "./components/Searh/SearchReasult.jsx";
 import Bookmarks from "./components/Bookmark/Bookmarks.jsx";
