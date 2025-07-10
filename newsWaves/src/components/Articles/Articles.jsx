@@ -11,12 +11,14 @@ const Articles = () => {
   const loaderRef = useRef(null);
   const navigate = useNavigate();
 
-  // const apiKey = import.meta.env.VITE_NEWS_API_KEY;
+  const apiKey = import.meta.env.VITE_NEWS_API_KEY;
+  console.log(import.meta.env);
+  
 
   const fetchArticles = useCallback(async () => {
     try {
       const res = await fetch(
-        `https://newsapi.org/v2/top-headlines?country=us&pageSize=10&page=${page}&apiKey=${'apiKey'}`
+        `https://newsapi.org/v2/top-headlines?country=us&pageSize=10&page=${page}&apiKey=${apiKey}`
       );
       const data = await res.json();
       if (data.articles.length === 0) {
@@ -27,7 +29,7 @@ const Articles = () => {
     } catch (err) {
       console.error("Error fetching articles:", err);
     }
-  }, [page]);
+  }, [page,apiKey]);
 
   useEffect(() => {
     fetchArticles();

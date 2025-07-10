@@ -17,3 +17,4 @@ menu (all navigation, bookmarks, etc) done                          not done
 share option                                                        done
 search bar expension                                                not done
 infinite scroll                                                     done
+filters                                                             not done

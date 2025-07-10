@@ -21,7 +21,7 @@
 .navbar > .nav-items{
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
 
 }
 .link{
@@ -66,10 +66,34 @@ search box
   color:black;
 }
 
-.voice-btn{
-  height: 2.3rem;
-  width: 2.3rem;
-  border: none;
-  outline: none;
+.bookmarkBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 0.5rem;
+  border: 1px solid white;
   border-radius: 50%;
+  transition: ease-in-out 300ms;
+}
+
+.bookmarkBtn:hover{
+  background-color: #FBE3DB;
+  color: #363637;
+
+}
+
+
+@media screen and (max-width: 450px) {
+
+  .navbar{
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .nav-items{
+    gap: 1rem;
+  }
+  .input-box{
+    max-width: 165px;
+  }
 }

@@ -1,5 +1,5 @@
 import { useLocation, useParams, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import React ,{ useEffect, useState } from "react";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { IoBookmarkOutline, IoBookmark } from "react-icons/io5";
 import { MdNavigateNext } from "react-icons/md";
@@ -7,24 +7,28 @@ import { MdNavigateNext } from "react-icons/md";
 import "./article.css";
 import Navbar from "../Navbar/Navbar.jsx";
 
+
 function Article() {
   const { index } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
   const [article, setArticle] = useState(null);
+  const BACKEND_URL = import.meta.env.VITE_NEWS_API_URL;
+  
+
 
   useEffect(() => {
     if (location.state?.articles) {
       setArticle(location.state.articles[parseInt(index)]);
     } else {
       // fallback: fetch and pick one by index
-      fetch("http://localhost:2020/api/parse")
+      fetch(`${BACKEND_URL}/parse`)
         .then((res) => res.json())
         .then((data) => {
           setArticle(data.articles[parseInt(index)]);
         });
     }
-  }, [index, location.state]);
+  }, [index, location.state, BACKEND_URL]);
 
   // const articleUrl = window.location.href; // or use article ID/slug
   // const articleUrl = article?.url;

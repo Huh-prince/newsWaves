@@ -15,7 +15,9 @@ dist-ssr
 
 #gitignore
 .env
-node_modules
+**/node_modules
+docs.txt
+
 
 # Editor directories and files
 .vscode/*

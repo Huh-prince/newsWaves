@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { IoBookmark } from "react-icons/io5";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import { RxHamburgerMenu } from "react-icons/rx";
 
 const Navbar = () => {
   const [query, setQuery] = useState("");
-  // const [listening, setListening] = useState(false);
   const navigate = useNavigate();
 
   const handleSearch = () => {
@@ -14,36 +13,6 @@ const Navbar = () => {
     }
   };
 
-  // const handleVoiceSearch = () => {
-  //   const SpeechRecognition =
-  //     window.SpeechRecognition || window.webkitSpeechRecognition;
-
-  //   if (!SpeechRecognition) {
-  //     alert("Voice search is not supported in this browser.");
-  //     return;
-  //   }
-
-  //   const recognition = new SpeechRecognition();
-  //   recognition.lang = "en-US";
-  //   recognition.interimResults = false;
-
-  //   recognition.start();
-  //   setListening(true);
-
-  //   recognition.onresult = (event) => {
-  //     const spokenQuery = event.results[0][0].transcript;
-  //     setQuery(spokenQuery);
-  //     setListening(false);
-  //     navigate(`/search?q=${encodeURIComponent(spokenQuery)}`);
-  //   };
-
-  //   recognition.onerror = () => {
-  //     setListening(false);
-  //     alert("Voice recognition failed.");
-  //   };
-
-  //   recognition.onend = () => setListening(false);
-  // };
 
   return (
     <>
@@ -69,15 +38,11 @@ const Navbar = () => {
             <button className="search-btn" onClick={handleSearch}>
               Search
             </button>
-            {/* <button className="voice-btn" onClick={handleVoiceSearch}>
-              🎤 {listening ? "Listening..." : ""}
-            </button> */}
-            {/* <button onClick={() => navigate("/bookmarks")}>Bookmarks</button> */}
 
           </div>
-          <div className="link">
-            <RxHamburgerMenu />
-          </div>
+          <Link to="/bookmarks" className="bookmarkBtn">
+            <IoBookmark />
+          </Link>
         </div>
       </div>
     </>
