@@ -26,7 +26,7 @@
 
 | Homepage | Article Page | Bookmarks |
 |---------|---------------|------------|
-| ![Home](./screenshots/home.png) | ![Article](./screenshots/article.png) | ![Bookmark](./screenshots/bookmark.png) |
+| ![Home](./screenshots/1.png) | ![Article](./screenshots/2.png) | ![Bookmark](./screenshots/3.png) | ![Bookmark](./screenshots/4.png) |
 
 ---
 

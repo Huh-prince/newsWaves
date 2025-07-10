@@ -8,11 +8,11 @@ const Mercury = require('@postlight/mercury-parser');
 const app = express();
 app.use(cors());
 
-// app.get("/",(req,res)=>{
-//     // console.log(err);
-//     res.send("heyy")
+app.get("/",(req,res)=>{
+    // console.log(err);
+    res.send("running...")
     
-// })
+})
 
 app.get('/api/parse', async (req, res) => {
   const { url } = req.query;
